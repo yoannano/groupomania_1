@@ -1,0 +1,27 @@
+.profile-img {
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.user-title {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.delete-user {
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-user:hover {
+    color: #fd2d01;
+}

@@ -1,0 +1,55 @@
+.App-connect {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Yaldevi', sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 2rem;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5); 
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+    margin: 1rem 0 1rem 0;
+}
+
+.input {
+    height: 2rem;
+    width: 18rem;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.login-button {
+    width: 10rem;
+    height: 2.5rem;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    background-color:#fd2d01;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.login-button:hover {
+    opacity: 70%;
+}
+
+a {
+    text-decoration: none;
+    color: #fd2d01;
+}
+
+h1 {
+    margin: 3rem 0 3rem 0;
+}
+
+.logo2 {
+    height: 12rem;
+}

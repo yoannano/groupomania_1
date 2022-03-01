@@ -1,0 +1,50 @@
+
+npx kill-port 3013 reinitialise le port
+********************instalation de my sql sequelize**************
+
+dans le terminal 
+**************************************Utilisation de mysql sequelize
+en 1er installer:
+npm install -g sequelize-cli
+en 2e installer:
+npm install --save sequelize
+apres:
+npm i mysql2
+enfin:
+sequelize init
+ensuite on va créer le User:
+sequelize model:create --attributes "email:string password:string" --name User
+sequelize model:create --attributes "idUsers:integer title:string content:string atachment:string likes:integer" --name Message
+ATTENTION modifier ds le dossier migration mettre les allowNull a false ou true
+ATTENTION modifier ds le dossier models user ajouter la ligne
+ static associate(models) {
+      // define association here
+      models.Users.hasMany(models.Messages)
+    }
+    ds migration user ajouter
+      idUsers: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }   
+        ds migration message ajouter
+         models.Messages.belongsTo(models.Users, {
+        foreignKey: {
+          allowNull: false
+        }
+        apres aller ds la console wamp
+        faire un create database et mettre le nom qu il y a ds config.json faire la mm chose pour les 3
+        mysql> create database et le nom ds config.json 
+        ATTENTION ne pas oublier le point virgule a la fin
+        une fois fait on peut faire exit et revenir au terminal vsc
+        et on fait
+        sequelize db:migrate
+        *****************************************************************************************************************************
+
+        npm install jsonwebtoken
+        npm install bcrypt
+
+        pour les images installer:
+        npm install multer

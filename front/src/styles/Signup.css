@@ -1,0 +1,11 @@
+.lmj-banner {
+    height: 200px;
+    text-align: center;
+    border-bottom: 2px solid darkgray;
+}
+
+.signup-invalid {
+    width: 18rem;
+    margin-top: 0;
+    color: #fd2d01;
+}

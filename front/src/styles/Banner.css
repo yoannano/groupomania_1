@@ -1,0 +1,100 @@
+.lmj-banner {
+    height: 200px;
+    text-align: center;
+    border-bottom: 2px solid lightgray;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lmj-banner a:last-child {
+    margin-bottom: 1rem;
+}
+
+.lmj-logo {
+    height: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-logo {
+    height: 3rem;
+    align-self: center;
+    margin-bottom: 1rem;
+    padding-left: 5rem;
+}
+
+.connexion-search {
+    display: flex;
+}
+    
+.connexion-feed {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+    
+.connexion-feed:hover {
+    color: #fd2d01;
+    cursor: pointer;
+}
+    
+    
+.connexion-banner {
+    display: flex;
+    width: 10rem;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4rem 0;
+    align-items: center;
+    font-family: 'Yaldevi', sans-serif;
+}
+    
+.connexion-img {
+    background: darkgrey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-attachement {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+    
+.connexion-user {
+    color: #fff;
+    font-size: 3.5rem;
+}
+    
+.connexion-disconnect {
+    font-weight: bold;
+    font-family: 'Yaldevi', sans-serif;
+    cursor: pointer;
+}
+
+.connexion-disconnect:hover {
+    opacity: 0.6;
+}
+
+.connexion-firstName {
+    padding: 0 1rem 0 1rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* PARTIE RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+    .main-logo {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .lmj-logo {
+        display: none;
+    }
+}
