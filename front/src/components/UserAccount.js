@@ -12,13 +12,13 @@ function UserAccount() {
   const [firstName, modifyFirstName] = useState("");
   const [lastName, modifyLastName] = useState("");
   const [email, modifyEmail] = useState("");
-  const [password, modifyPassword] = useState("");
+
  
 
   const [invalidFirstName, setInvalidFirstName] = useState(false);
   const [invalidLastName, setInvalidLastName] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
-  const [ setInvalidPassword] = useState(false);
+ 
 
   function formValidation() {
     let validation = true;
@@ -51,13 +51,7 @@ function UserAccount() {
         setInvalidEmail(false);
       }
     }
-     //Validation password
-     if (!regExpPassword.test(password)) {
-      modifyPassword(true);
-      validation = false;
-    } else {
-      setInvalidPassword(false);
-    }
+    
     return validation;
   }
 
@@ -71,7 +65,7 @@ function UserAccount() {
         firstName: firstName ? firstName : user.firstName,
         lastName: lastName ? lastName : user.lastName,
         email: email ? email : user.email,
-        password: password ? password : user.password,
+       
       };
       axios({
         method: "put",
@@ -133,7 +127,6 @@ function UserAccount() {
         <input
           type="text"
           className="input"
-          placeholder={user["firstName"]}
           id="firstName"
           value={firstName}
           onChange={(e) => modifyFirstName(e.target.value)}
@@ -147,7 +140,6 @@ function UserAccount() {
         <input
           type="text"
           className="input"
-          placeholder={user["lastName"]}
           id="lastName"
           value={lastName}
           onChange={(e) => modifyLastName(e.target.value)}
@@ -162,7 +154,6 @@ function UserAccount() {
           type="email"
           placeholder="toto123@gmail.com"
           className="input"
-          placeholder={user["email"]}
           id="email"
           value={email}
           onChange={(e) => modifyEmail(e.target.value)}
@@ -170,19 +161,7 @@ function UserAccount() {
         {invalidEmail && (
           <p className="signup-invalid">Veuillez entrer un email valide</p>
         )}
-          {/* Votre mot de passe :
-          <input
-            type="password"
-            className="input"
-            value={password}
-            onChange={(e) => modifyPassword(e.target.value)}
-          ></input>
-          {invalidPassword && (
-            <p className="signup-invalid">
-              Le mot de passe doit contenir 8 caractères, au moins une
-              majuscule, une minuscule et un chiffre
-            </p>
-          )} */}
+          
         <button
           className="login-button"
           onClick={(e) => modifyAccount(e, user.id)}
