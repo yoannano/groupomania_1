@@ -3,7 +3,7 @@ import "../styles/UserAccount.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { regExpNames, regExpEmail, regExpPassword } from "../utils/Regex.js";
+import { regExpNames, regExpEmail } from "../utils/Regex.js";
 import axios from "axios";
 
 function UserAccount() {
