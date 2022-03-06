@@ -3,9 +3,7 @@ const jwt = require("jsonwebtoken");
 const comment = require("../models/comment");
 
 exports.createComment = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
   models.Comment.create({
     PostId: req.params.id,
     UserId: UserId,
@@ -16,9 +14,7 @@ exports.createComment = (req, res, next) => {
 };
 
 exports.deleteComment = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
   if (UserId === 1) {
     models.Comment.destroy({
       where: {

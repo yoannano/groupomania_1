@@ -4,9 +4,7 @@ const fs = require('fs');
 
 //Création d'un post
 exports.createPost = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
   //Images
   let imageUrl = req.file;
   if (imageUrl) {
@@ -31,9 +29,7 @@ exports.createPost = (req, res) => {
 };
 
 exports.modifyPost = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
   const post = models.Post.findOne({
     where: {
       id: req.params.id,
@@ -64,9 +60,8 @@ exports.modifyPost = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  
+  const UserId = req.auth.userId;
   if (UserId === 1) {
     models.Comment.destroy({
       //Pour suppr le post avec le comment

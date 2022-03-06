@@ -152,7 +152,6 @@ function UserAccount() {
         Votre email :
         <input
           type="email"
-          placeholder="toto123@gmail.com"
           className="input"
           id="email"
           value={email}
