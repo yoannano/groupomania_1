@@ -143,7 +143,7 @@ const PostList = ({ posts, test }) => {
                 <Moment format="D MMM YYYY">{post.createdAt}</Moment>
               </div>
             </div>
-            {(userId === post.User.id || userId === 1) && (
+            {(userId === post.User.id  ) && (
               <div className="post-actions">
                 <FontAwesomeIcon
                   icon={faWrench}
@@ -208,7 +208,7 @@ const PostList = ({ posts, test }) => {
                     </div>
                     <div className="comments-content">
                       {comment.comment}
-                      {(userId === comment.User.id || userId === 1) && (
+                      {(userId === comment.User.id ) && (
                         <FontAwesomeIcon
                           icon={faTrash}
                           className="deleteComment-icon"

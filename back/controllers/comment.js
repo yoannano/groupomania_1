@@ -15,7 +15,7 @@ exports.createComment = (req, res, next) => {
 
 exports.deleteComment = (req, res, next) => {
   const UserId = req.auth.userId;
-  if (UserId === 1) {
+  if (UserId) {
     models.Comment.destroy({
       where: {
         id: req.params.id,

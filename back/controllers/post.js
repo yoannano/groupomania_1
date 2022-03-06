@@ -62,7 +62,8 @@ exports.modifyPost = (req, res, next) => {
 exports.deletePost = (req, res, next) => {
   
   const UserId = req.auth.userId;
-  if (UserId === 1) {
+ 
+  if (UserId) {
     models.Comment.destroy({
       //Pour suppr le post avec le comment
       where: {
