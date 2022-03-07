@@ -65,9 +65,7 @@ exports.login = (req, res, next) => {
 };
 
 exports.modifyAccount = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
 
   if (UserId != null) {
     const user = models.User.findOne({
@@ -80,7 +78,7 @@ exports.modifyAccount = (req, res, next) => {
           firstName: req.body.firstName ? req.body.firstName : user.firstName,
           lastName: req.body.lastName ? req.body.lastName : user.lastName,
           email: req.body.email ? req.body.email : user.email,
-          // password: req.body.password ? req.body.password : user.password,
+        
         },
         {
           where: { id: UserId },

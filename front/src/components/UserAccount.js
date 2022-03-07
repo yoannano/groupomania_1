@@ -127,6 +127,7 @@ function UserAccount() {
         <input
           type="text"
           className="input"
+          placeholder={user["firstName"]}
           id="firstName"
           value={firstName}
           onChange={(e) => modifyFirstName(e.target.value)}
@@ -140,6 +141,7 @@ function UserAccount() {
         <input
           type="text"
           className="input"
+          placeholder={user["lastName"]}
           id="lastName"
           value={lastName}
           onChange={(e) => modifyLastName(e.target.value)}
@@ -153,6 +155,7 @@ function UserAccount() {
         <input
           type="email"
           className="input"
+          placeholder={user["email"]}
           id="email"
           value={email}
           onChange={(e) => modifyEmail(e.target.value)}
