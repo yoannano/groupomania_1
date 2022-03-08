@@ -93,9 +93,7 @@ exports.modifyAccount = (req, res, next) => {
 };
 
 exports.deleteAccount = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
-  const decodedToken = jwt.verify(token, process.env.JWT_SIGN_SECRET);
-  const UserId = decodedToken.userId;
+  const UserId = req.auth.userId;
 
   if (UserId != null) {
     models.User.findOne({

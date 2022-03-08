@@ -19,10 +19,9 @@ exports.createPost = (req, res) => {
   });
   models.Post.create({
     UserId: UserId,
-    content: req.body.content,
+    ...req.body,
     attachement: imageUrl,
-    createdAt: Date.now(),
-    updatedAt: Date.now(),
+    
   })
     .then(() => res.status(201).json({ message: "Post enregistré !" }))
     .catch((error) => res.status(400).json({ error: error }));
