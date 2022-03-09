@@ -113,7 +113,7 @@ function Signup() {
           ></input>
           {invalidFirstName && (
             <p className="signup-invalid">
-              Veuillez uniquement utiliser des lettres et non des chiffres
+              Utiliser au moin 3 lettres et pas de chiffres merci
             </p>
           )}
           Votre nom :
@@ -126,7 +126,7 @@ function Signup() {
           ></input>
           {invalidLastName && (
             <p className="signup-invalid">
-              Veuillez uniquement utiliser des lettres et non des chiffres
+              Utiliser au moin 3 lettres et pas de chiffres merci
             </p>
           )}
           Votre email :
@@ -155,7 +155,6 @@ function Signup() {
             </p>
           )}
           Votre image :
-          {/* <input type="file" name="attachement" placeholder="image" className="input" onChange={(e) => newAttachement(e.target.files[0])}></input> */}
           <input
             type="file"
             name="attachement"
