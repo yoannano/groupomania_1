@@ -72,23 +72,19 @@ exports.modifyAccount = (req, res, next) => {
       where: {
         id: UserId,
       },
-    })
-      models.User.update(
-        {
-          firstName: req.body.firstName ? req.body.firstName : user.firstName,
-          lastName: req.body.lastName ? req.body.lastName : user.lastName,
-          email: req.body.email ? req.body.email : user.email,
-        
-        },
-        {
-          where: { id: UserId },
-        }
-      )
-        .then(() =>
-          res.status(200).json({ message: 'Profil modifié !'
-          })
-        )
-        .catch((error) => res.status(400).json({ error }));
+    });
+    models.User.update(
+      {
+        firstName: req.body.firstName ? req.body.firstName : user.firstName,
+        lastName: req.body.lastName ? req.body.lastName : user.lastName,
+        email: req.body.email ? req.body.email : user.email,
+      },
+      {
+        where: { id: UserId },
+      }
+    )
+      .then(() => res.status(200).json({ message: "Profil modifié !" }))
+      .catch((error) => res.status(400).json({ error }));
   }
 };
 
@@ -100,29 +96,28 @@ exports.deleteAccount = (req, res) => {
       where: {
         id: UserId,
       },
-    })
-      .then((user) => {
-        if (user != null) {
-          models.Comment.destroy({
-            where: { UserId: user.id },
-          }).then(() => {
-            console.log(
-              "Tous les commentaires de l'utilisateur ont été supprimés"
-            );
-          });
-          models.Post.destroy({
-            where: { UserId: user.id },
-          }).then(() => {
-            console.log(
-              "Toutes les publications de l'utilisateur ont été supprimées"
-            );
-          });
-          models.User.destroy({
-            where: { id: user.id },
-          })
-            .then(() => res.status(200).json({ message: "Compte supprimé !" }))
-            .catch((error) => res.status(500).json(error));
-        }
-      });
+    }).then((user) => {
+      if (user != null) {
+        models.Comment.destroy({
+          where: { UserId: user.id },
+        }).then(() => {
+          console.log(
+            "Tous les commentaires de l'utilisateur ont été supprimés"
+          );
+        });
+        models.Post.destroy({
+          where: { UserId: user.id },
+        }).then(() => {
+          console.log(
+            "Toutes les publications de l'utilisateur ont été supprimées"
+          );
+        });
+        models.User.destroy({
+          where: { id: user.id },
+        })
+          .then(() => res.status(200).json({ message: "Compte supprimé !" }))
+          .catch((error) => res.status(500).json(error));
+      }
+    });
   }
 };

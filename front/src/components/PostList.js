@@ -26,7 +26,7 @@ const PostList = ({ posts, test }) => {
     })
       .then((res) => res.json())
       .then(() => {
-        window.location.href = "/home";
+        window.location.href = "/PostList";
       })
       .catch((error) => {
         alert(error);
